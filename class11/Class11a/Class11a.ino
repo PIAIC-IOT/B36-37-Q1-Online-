@@ -1,5 +1,6 @@
 const int trigPin = 12; //D5
 const int echoPin = 14; //D6
+#define LED LED_BUILTIN //D4
 
 #define SOUND_VELOCITY 0.034
 #define CM_TO_INCH 0.393701
@@ -30,6 +31,10 @@ void loop() {
 
   Serial.print("Distance: (cm) ");
   Serial.println(distanceCm);
+
+  if(distanceCm <= 20.0){
+    digitalWrite(LED,HIGH);
+  }
 
   Serial.print("Distance: (Inch) ");
   Serial.println(distanceInch);
